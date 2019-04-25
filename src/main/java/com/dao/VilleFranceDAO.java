@@ -79,7 +79,7 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 			connection.close();
 
 		} catch (SQLException e) {
-			System.out.println("Echec du Select." + e);
+			e.printStackTrace();
 		}
 		// fermeture des ressources utilisées
 
@@ -119,7 +119,7 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 			connection.close();
 
 		} catch (SQLException e) {
-			System.out.println("Echec du Select." + e);
+			e.printStackTrace();
 		}
 		// fermeture des ressources utilisées
 
@@ -163,7 +163,7 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 			connection.close();
 
 		} catch (SQLException e) {
-			System.out.println("Echec du Select." + e);
+			e.printStackTrace();
 		}
 	}
 
@@ -200,7 +200,7 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 			connection.close();
 
 		} catch (SQLException e) {
-			System.out.println("Echec du Select." + e);
+			e.printStackTrace();
 		}
 		// fermeture des ressources utilisées
 
@@ -234,7 +234,7 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 			connection.close();
 
 		} catch (SQLException e) {
-			System.out.println("Echec du Select." + e);
+			e.printStackTrace();
 		}
 	}
 
@@ -257,7 +257,7 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 			connection.close();
 
 		} catch (SQLException e) {
-			System.out.println("Echec du Select." + e);
+			e.printStackTrace();
 		}
 	}
 }
