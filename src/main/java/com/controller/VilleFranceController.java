@@ -21,7 +21,6 @@ import com.config.Application;
 @RestController
 public class VilleFranceController {
 
-	/* Lien : localhost:8181/villeFrance OUI C'EST LE LIEN BIS */
 	@RequestMapping(value = "/villeFrance", method = RequestMethod.GET)
 	@ResponseBody
 

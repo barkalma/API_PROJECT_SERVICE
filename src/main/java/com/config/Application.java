@@ -3,7 +3,7 @@ import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 public class Application {
-  private static final String BUNDLE_NAME = "com.config.dao"; //$NON-NLS-1$
+  private static final String BUNDLE_NAME = "com.config.dao"; 
 
   private static final ResourceBundle RESOURCE_BUNDLE = ResourceBundle.getBundle(BUNDLE_NAME);
 
@@ -13,7 +13,8 @@ public class Application {
     try {
       return RESOURCE_BUNDLE.getString(key);
     } catch (MissingResourceException e) {
-      return '!' + key + '!';
+      System.out.println( '!' + key + '!');
+      throw e;
     }
   }
 }
