@@ -30,7 +30,6 @@ public class VilleFranceController {
 		VilleFranceDAO villeFranceDAO = new VilleFranceDAO(factory);
 		List<VilleFranceBLO> villeFrance = new ArrayList<VilleFranceBLO>(50);
 		villeFrance = villeFranceDAO.lister(Integer.parseInt(offset));
-		System.out.println("Appel GET");
 		return villeFrance;
 	}
 	
@@ -43,7 +42,6 @@ public class VilleFranceController {
 		VilleFranceDAO villeFranceDAO = new VilleFranceDAO(factory);
 		List<VilleFranceBLO> villeFrance = new ArrayList<VilleFranceBLO>(50);
 		villeFrance = villeFranceDAO.lister();
-		System.out.println("Appel GET");
 		return villeFrance;
 	}
 
@@ -75,7 +73,6 @@ public class VilleFranceController {
 		VilleFranceBLO villeFranceFind = new VilleFranceBLO();
 		villeFranceFind = this.ville(ville);
 		villeFranceDAO.supprimer(villeFranceFind);
-		System.out.println("Appel DELETE");
 		deleteReturn = "Ville Supprimée de la base";
 
 		return deleteReturn;
@@ -91,7 +88,6 @@ public class VilleFranceController {
 				Application.getString("motDePasse"));
 		VilleFranceDAO villeFranceDAO = new VilleFranceDAO(factory);
 		villeFranceDAO.modifier(this.ville(ville));
-		System.out.println("Appel POST");
 		postReturn = "Ville Modifiée de la base";
 
 		return postReturn;
@@ -108,7 +104,6 @@ public class VilleFranceController {
 		VilleFranceDAO villeFranceDAO = new VilleFranceDAO(factory);
 		VilleFranceBLO villeFrance = this.ville(ville);
 		villeFranceDAO.creer(villeFrance);
-		System.out.println("Appel PUT");
 		putReturn = "Ville Créée dans la base";
 
 		return putReturn;

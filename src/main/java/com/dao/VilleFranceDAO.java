@@ -32,7 +32,6 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 
 	private static final String SQL_SELECT_WHERE = "SELECT Code_commune_INSEE, Nom_commune, Code_postal, "
 			+ "Libelle_acheminement, " + "Ligne_5, Latitude, Longitude FROM ville_france WHERE Code_commune_INSEE LIKE ?";
-	private static final String SQL_UPDATE = "UPDATE `ville_france` SET `Code_commune_INSEE`=?,`Nom_commune`=?,`Code_postal`=?,`Libelle_acheminement`=?,`Ligne_5`=?,`Latitude`=?,`Longitude`=? ";
 	private static final String SQL_UPDATE_CODE_POSTAL = "UPDATE `ville_france` SET `Nom_commune`=?,`Code_postal`=?,`Libelle_acheminement`=?,`Ligne_5`=?,`Latitude`=?,`Longitude`=? WHERE `Code_commune_INSEE` LIKE ?";
 
 	/* Constantes pour éviter la duplication de code */
@@ -100,7 +99,6 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 			connection = this.creerConnexion();
 			preparedStatement = connection.prepareStatement(SQL_SELECT_VILLE_FRANCE_PAR_50);
 			preparedStatement.setInt(1, offset);
-			System.out.println(preparedStatement);
 			resultSet = preparedStatement.executeQuery();
 			// récupération des valeurs des attributs de la BDD pour les mettre dans une
 			// liste
@@ -230,9 +228,8 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 			preparedStatement.setString(6, villeFranceBLO.getLongitude());
 			preparedStatement.setString(7, villeFranceBLO.getCodeCommuneInsee());
 
-			System.out.println(preparedStatement);
 
-			int resultat = preparedStatement.executeUpdate();
+			preparedStatement.executeUpdate();
 			preparedStatement.close();
 			connection.close();
 
