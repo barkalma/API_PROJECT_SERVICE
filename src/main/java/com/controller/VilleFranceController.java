@@ -69,8 +69,7 @@ public class VilleFranceController {
 		DAOFactory factory = new DAOFactory(Application.getString("url"), Application.getString("nomUtilisateur"),
 				Application.getString("motDePasse"));
 		VilleFranceDAO villeFranceDAO = new VilleFranceDAO(factory);
-		VilleFranceBLO villeFranceFind = new VilleFranceBLO();
-		villeFranceFind = this.ville(ville);
+		VilleFranceBLO villeFranceFind = this.ville(ville);
 		villeFranceDAO.supprimer(villeFranceFind);
 		deleteReturn = "Ville Supprimée de la base";
 

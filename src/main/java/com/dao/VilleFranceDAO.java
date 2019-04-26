@@ -63,14 +63,7 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 			// récupération des valeurs des attributs de la BDD pour les mettre dans une
 			// liste
 			while (resultSet.next()) {
-				VilleFranceBLO villeFrance = new VilleFranceBLO();
-				villeFrance.setCodeCommuneInsee(resultSet.getString(ATTRIBUT_CODE_COMMUNE_INSEE));
-				villeFrance.setNomCommune(resultSet.getString(ATTRIBUT_NOM_COMMUNE));
-				villeFrance.setCodePostal(resultSet.getString(ATTRIBUT_CODE_POSTAL));
-				villeFrance.setLibelleAcheminement(resultSet.getString(ATTRIBUT_LIBELLE_ACHEMINEMENT));
-				villeFrance.setLigne5(resultSet.getString(ATTRIBUT_LIGNE_5));
-				villeFrance.setLattitude(resultSet.getString(ATTRIBUT_LATITUDE));
-				villeFrance.setLongitude(resultSet.getString(ATTRIBUT_LONGITUDE));
+				VilleFranceBLO villeFrance = this.mapVille(resultSet);
 				villeFranceListe.add(villeFrance);
 			}
 
@@ -103,14 +96,7 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 			// récupération des valeurs des attributs de la BDD pour les mettre dans une
 			// liste
 			while (resultSet.next()) {
-				VilleFranceBLO villeFrance = new VilleFranceBLO();
-				villeFrance.setCodeCommuneInsee(resultSet.getString(ATTRIBUT_CODE_COMMUNE_INSEE));
-				villeFrance.setNomCommune(resultSet.getString(ATTRIBUT_NOM_COMMUNE));
-				villeFrance.setCodePostal(resultSet.getString(ATTRIBUT_CODE_POSTAL));
-				villeFrance.setLibelleAcheminement(resultSet.getString(ATTRIBUT_LIBELLE_ACHEMINEMENT));
-				villeFrance.setLigne5(resultSet.getString(ATTRIBUT_LIGNE_5));
-				villeFrance.setLattitude(resultSet.getString(ATTRIBUT_LATITUDE));
-				villeFrance.setLongitude(resultSet.getString(ATTRIBUT_LONGITUDE));
+				VilleFranceBLO villeFrance = this.mapVille(resultSet);
 				villeFranceListe.add(villeFrance);
 			}
 
@@ -184,14 +170,7 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 			// récupération des valeurs des attributs de la BDD pour les mettre dans une
 			// liste
 			while (resultSet.next()) {
-				VilleFranceBLO villeFrance = new VilleFranceBLO();
-				villeFrance.setCodeCommuneInsee(resultSet.getString(ATTRIBUT_CODE_COMMUNE_INSEE));
-				villeFrance.setNomCommune(resultSet.getString(ATTRIBUT_NOM_COMMUNE));
-				villeFrance.setCodePostal(resultSet.getString(ATTRIBUT_CODE_POSTAL));
-				villeFrance.setLibelleAcheminement(resultSet.getString(ATTRIBUT_LIBELLE_ACHEMINEMENT));
-				villeFrance.setLigne5(resultSet.getString(ATTRIBUT_LIGNE_5));
-				villeFrance.setLattitude(resultSet.getString(ATTRIBUT_LATITUDE));
-				villeFrance.setLongitude(resultSet.getString(ATTRIBUT_LONGITUDE));
+				VilleFranceBLO villeFrance = this.mapVille(resultSet);
 				villeFranceListe.add(villeFrance);
 			}
 
@@ -259,5 +238,17 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 		} catch (SQLException e) {
 			throw e;
 		}
+	}
+	
+	private VilleFranceBLO mapVille(ResultSet resultSet) throws SQLException {
+		VilleFranceBLO villeFrance = new VilleFranceBLO();
+		villeFrance.setCodeCommuneInsee(resultSet.getString(ATTRIBUT_CODE_COMMUNE_INSEE));
+		villeFrance.setNomCommune(resultSet.getString(ATTRIBUT_NOM_COMMUNE));
+		villeFrance.setCodePostal(resultSet.getString(ATTRIBUT_CODE_POSTAL));
+		villeFrance.setLibelleAcheminement(resultSet.getString(ATTRIBUT_LIBELLE_ACHEMINEMENT));
+		villeFrance.setLigne5(resultSet.getString(ATTRIBUT_LIGNE_5));
+		villeFrance.setLattitude(resultSet.getString(ATTRIBUT_LATITUDE));
+		villeFrance.setLongitude(resultSet.getString(ATTRIBUT_LONGITUDE));
+		return villeFrance;
 	}
 }
