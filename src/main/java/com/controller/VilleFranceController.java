@@ -79,7 +79,7 @@ public class VilleFranceController {
 	@RequestMapping(value = "/villeFrancePost", method = RequestMethod.POST)
 	@ResponseBody
 
-	public String post(@RequestBody String ville) throws SQLException {
+	public String post(@RequestParam(required = true, value = "ville")  String ville) throws SQLException {
 
 		String postReturn;
 		DAOFactory factory = new DAOFactory(Application.getString("url"), Application.getString("nomUtilisateur"),
@@ -121,11 +121,13 @@ public class VilleFranceController {
 
 	protected VilleFranceBLO ville(String villeString) {
 
+		
 		VilleFranceBLO ville = new VilleFranceBLO();
 		villeString.replace(" ", "");
 		villeString.replace("[", "");
 		villeString.replace("]", "");
 		String[] villepart = villeString.split(",");
+		
 		String codeCommune = villepart[0].split("=")[1];
 		String nomCommune = villepart[1].split("=")[1];
 		String codePostal = villepart[2].split("=")[1];

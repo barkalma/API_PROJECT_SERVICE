@@ -54,7 +54,7 @@ public abstract class DAO<T> {
      * @param objet l'objet que l'on souhaite modifier dans la BDD.
      * @throws SQLException 
      */
-    public abstract void modifier(T objet) throws SQLException;
+    public abstract void modifier(T objet) throws SQLException ;
 
     /**
      * Supprime tous les objets ayant pour attributs les mêmes que ceux
