@@ -36,7 +36,8 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 
 	/* Constantes pour éviter la duplication de code */
 	private static final String DELETE = "DELETE FROM `ville_france` WHERE `Code_commune_INSEE` LIKE ?";
-
+	
+	private List<VilleFranceBLO> villeFranceListe = new ArrayList<VilleFranceBLO>();
 	/**
 	 * Constructeur de DAO.
 	 *
@@ -52,7 +53,6 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
-		List<VilleFranceBLO> villeFranceListe = new ArrayList<VilleFranceBLO>();
 
 		try {
 			// création d'une connexion grâce à la DAOFactory placée en attribut de la
@@ -64,7 +64,7 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 			// liste
 			while (resultSet.next()) {
 				VilleFranceBLO villeFrance = this.mapVille(resultSet);
-				villeFranceListe.add(villeFrance);
+				this.villeFranceListe.add(villeFrance);
 			}
 
 			resultSet.close();
@@ -84,7 +84,6 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
-		List<VilleFranceBLO> villeFranceListe = new ArrayList<VilleFranceBLO>(50);
 
 		try {
 			// création d'une connexion grâce à la DAOFactory placée en attribut de la
@@ -97,7 +96,7 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 			// liste
 			while (resultSet.next()) {
 				VilleFranceBLO villeFrance = this.mapVille(resultSet);
-				villeFranceListe.add(villeFrance);
+				this.villeFranceListe.add(villeFrance);
 			}
 
 			resultSet.close();
@@ -159,7 +158,7 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
-		List<VilleFranceBLO> villeFranceListe = new ArrayList<VilleFranceBLO>();
+
 		try {
 			// création d'une connexion grâce à la DAOFactory placée en attribut de la
 			// classe
@@ -171,7 +170,7 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 			// liste
 			while (resultSet.next()) {
 				VilleFranceBLO villeFrance = this.mapVille(resultSet);
-				villeFranceListe.add(villeFrance);
+				this.villeFranceListe.add(villeFrance);
 			}
 
 			resultSet.close();
