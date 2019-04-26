@@ -25,12 +25,11 @@ public class VilleFranceController {
 	@RequestMapping(value = "/villeFrance", method = RequestMethod.GET)
 	@ResponseBody
 
-	public List<VilleFranceBLO> get(@RequestParam(required = false, value = "offset") String offset) throws Exception, SQLException {
+	public List<VilleFranceBLO> get(@RequestParam(required = false, value = "offset") String offset) throws SQLException {
 		DAOFactory factory = new DAOFactory(Application.getString("url"), Application.getString("nomUtilisateur"),
 				Application.getString("motDePasse"));
 		VilleFranceDAO villeFranceDAO = new VilleFranceDAO(factory);
-		List<VilleFranceBLO> villeFrance = new ArrayList<VilleFranceBLO>(50);
-		villeFrance = villeFranceDAO.lister(Integer.parseInt(offset));
+		List<VilleFranceBLO> villeFrance = villeFranceDAO.lister(Integer.parseInt(offset));
 		return villeFrance;
 	}
 	
@@ -41,8 +40,7 @@ public class VilleFranceController {
 		DAOFactory factory = new DAOFactory(Application.getString("url"), Application.getString("nomUtilisateur"),
 				Application.getString("motDePasse"));
 		VilleFranceDAO villeFranceDAO = new VilleFranceDAO(factory);
-		List<VilleFranceBLO> villeFrance = new ArrayList<VilleFranceBLO>(50);
-		villeFrance = villeFranceDAO.lister();
+		List<VilleFranceBLO> villeFrance = villeFranceDAO.lister();
 		return villeFrance;
 	}
 
