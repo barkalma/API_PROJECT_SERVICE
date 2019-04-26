@@ -1,17 +1,14 @@
 package com.controller;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.stereotype.Controller;
 
 import com.blo.VilleFranceBLO;
 import com.dao.DAOFactory;
@@ -21,27 +18,27 @@ import com.config.Application;
 
 @RestController
 public class VilleFranceController {
-
+	
+	private String nomUtilisateur = "nomUtilisateur";
+	private String motDePasse = "motDePasse";
 	@RequestMapping(value = "/villeFrance", method = RequestMethod.GET)
 	@ResponseBody
 
 	public List<VilleFranceBLO> get(@RequestParam(required = false, value = "offset") String offset) throws SQLException {
-		DAOFactory factory = new DAOFactory(Application.getString("url"), Application.getString("nomUtilisateur"),
-				Application.getString("motDePasse"));
+		DAOFactory factory = new DAOFactory(Application.getString("url"), Application.getString(nomUtilisateur),
+				Application.getString(motDePasse));
 		VilleFranceDAO villeFranceDAO = new VilleFranceDAO(factory);
-		List<VilleFranceBLO> villeFrance = villeFranceDAO.lister(Integer.parseInt(offset));
-		return villeFrance;
+		return villeFranceDAO.lister(Integer.parseInt(offset));
 	}
 	
 	@RequestMapping(value = "/villeFranceGet", method = RequestMethod.GET)
 	@ResponseBody
 
 	public List<VilleFranceBLO> getAll() throws SQLException {
-		DAOFactory factory = new DAOFactory(Application.getString("url"), Application.getString("nomUtilisateur"),
-				Application.getString("motDePasse"));
+		DAOFactory factory = new DAOFactory(Application.getString("url"), Application.getString(nomUtilisateur),
+				Application.getString(motDePasse));
 		VilleFranceDAO villeFranceDAO = new VilleFranceDAO(factory);
-		List<VilleFranceBLO> villeFrance = villeFranceDAO.lister();
-		return villeFrance;
+		return villeFranceDAO.lister();
 	}
 
 	@RequestMapping(value = "/villeFranceFind", method = RequestMethod.GET)
@@ -49,15 +46,14 @@ public class VilleFranceController {
 
 	public List<VilleFranceBLO> getWhere(@RequestParam(required = true, value = "value") String codeCommuneInsee) throws SQLException {
 
-		DAOFactory factory = new DAOFactory(Application.getString("url"), Application.getString("nomUtilisateur"),
-				Application.getString("motDePasse"));
+		DAOFactory factory = new DAOFactory(Application.getString("url"), Application.getString(nomUtilisateur),
+				Application.getString(motDePasse));
 		VilleFranceDAO villeFranceDAO = new VilleFranceDAO(factory);
 		VilleFranceBLO villeFranceFind = new VilleFranceBLO();
 		villeFranceFind.setCodeCommuneInsee(codeCommuneInsee);
 		
-		List<VilleFranceBLO> villeFrance = villeFranceDAO.trouver(villeFranceFind);
+		return villeFranceDAO.trouver(villeFranceFind);
 
-		return villeFrance;
 	}
 
 	@RequestMapping(value = "/villeFranceDelete", method = RequestMethod.POST)
@@ -66,8 +62,8 @@ public class VilleFranceController {
 	public String delete(@RequestParam(required = false, value = "value") String ville) throws SQLException {
 
 		String deleteReturn;
-		DAOFactory factory = new DAOFactory(Application.getString("url"), Application.getString("nomUtilisateur"),
-				Application.getString("motDePasse"));
+		DAOFactory factory = new DAOFactory(Application.getString("url"), Application.getString(nomUtilisateur),
+				Application.getString(motDePasse));
 		VilleFranceDAO villeFranceDAO = new VilleFranceDAO(factory);
 		VilleFranceBLO villeFranceFind = this.ville(ville);
 		villeFranceDAO.supprimer(villeFranceFind);
@@ -82,8 +78,8 @@ public class VilleFranceController {
 	public String post(@RequestParam(required = true, value = "ville")  String ville) throws SQLException {
 
 		String postReturn;
-		DAOFactory factory = new DAOFactory(Application.getString("url"), Application.getString("nomUtilisateur"),
-				Application.getString("motDePasse"));
+		DAOFactory factory = new DAOFactory(Application.getString("url"), Application.getString(nomUtilisateur),
+				Application.getString(motDePasse));
 		VilleFranceDAO villeFranceDAO = new VilleFranceDAO(factory);
 		villeFranceDAO.modifier(this.ville(ville));
 		postReturn = "Ville Modifiée de la base";
@@ -97,8 +93,8 @@ public class VilleFranceController {
 	public String put(@RequestParam(required = true, value = "value") String ville) throws SQLException {
 
 		String putReturn;
-		DAOFactory factory = new DAOFactory(Application.getString("url"), Application.getString("nomUtilisateur"),
-				Application.getString("motDePasse"));
+		DAOFactory factory = new DAOFactory(Application.getString("url"), Application.getString(nomUtilisateur),
+				Application.getString(motDePasse));
 		VilleFranceDAO villeFranceDAO = new VilleFranceDAO(factory);
 		VilleFranceBLO villeFrance = this.ville(ville);
 		villeFranceDAO.creer(villeFrance);
