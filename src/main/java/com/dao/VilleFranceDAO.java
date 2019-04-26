@@ -47,7 +47,7 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 	}
 
 	@Override
-	public List<VilleFranceBLO> lister() {
+	public List<VilleFranceBLO> lister() throws SQLException {
 		// TODO Auto-generated method stub
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -79,14 +79,14 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 			connection.close();
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw e;
 		}
 		// fermeture des ressources utilisées
 
 		return villeFranceListe;
 	}
 	
-	public List<VilleFranceBLO> lister(int offset) {
+	public List<VilleFranceBLO> lister(int offset) throws SQLException {
 		// TODO Auto-generated method stub
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -119,7 +119,7 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 			connection.close();
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw e;
 		}
 		// fermeture des ressources utilisées
 
@@ -141,7 +141,7 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 	}
 
 	@Override
-	public void creer(VilleFranceBLO villeFranceBLO) {
+	public void creer(VilleFranceBLO villeFranceBLO) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
@@ -163,12 +163,12 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 			connection.close();
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw e;
 		}
 	}
 
 	@Override
-	public List<VilleFranceBLO> trouver(VilleFranceBLO villeFranceBLO) {
+	public List<VilleFranceBLO> trouver(VilleFranceBLO villeFranceBLO) throws SQLException {
 		// TODO Auto-generated method stub
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -200,7 +200,7 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 			connection.close();
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw e;
 		}
 		// fermeture des ressources utilisées
 
@@ -208,7 +208,7 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 	}
 
 	@Override
-	public void modifier(VilleFranceBLO villeFranceBLO) {
+	public void modifier(VilleFranceBLO villeFranceBLO) throws SQLException {
 		// TODO Auto-generated method stub
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -234,12 +234,12 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 			connection.close();
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw e;
 		}
 	}
 
 	@Override
-	public void supprimer(VilleFranceBLO villeFranceBLO) {
+	public void supprimer(VilleFranceBLO villeFranceBLO) throws SQLException {
 		// TODO Auto-generated method stub
 
 		Connection connection = null;
@@ -257,7 +257,7 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 			connection.close();
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw e;
 		}
 	}
 }
