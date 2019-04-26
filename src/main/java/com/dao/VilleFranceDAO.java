@@ -38,6 +38,9 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 	private static final String DELETE = "DELETE FROM `ville_france` WHERE `Code_commune_INSEE` LIKE ?";
 	
 	private List<VilleFranceBLO> villeFranceListe = new ArrayList<VilleFranceBLO>();
+	private Connection connection = null;
+	private PreparedStatement preparedStatement = null;
+	private ResultSet resultSet = null;
 	/**
 	 * Constructeur de DAO.
 	 *
@@ -50,10 +53,7 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 	@Override
 	public List<VilleFranceBLO> lister() throws SQLException {
 		// TODO Auto-generated method stub
-		Connection connection = null;
-		PreparedStatement preparedStatement = null;
-		ResultSet resultSet = null;
-
+		
 		try {
 			// création d'une connexion grâce à la DAOFactory placée en attribut de la
 			// classe
@@ -81,9 +81,6 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 	
 	public List<VilleFranceBLO> lister(int offset) throws SQLException {
 		// TODO Auto-generated method stub
-		Connection connection = null;
-		PreparedStatement preparedStatement = null;
-		ResultSet resultSet = null;
 
 		try {
 			// création d'une connexion grâce à la DAOFactory placée en attribut de la
@@ -127,8 +124,6 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 
 	@Override
 	public void creer(VilleFranceBLO villeFranceBLO) throws SQLException {
-		Connection connection = null;
-		PreparedStatement preparedStatement = null;
 
 		try {
 			// création d'une connexion grâce à la DAOFactory placée en attribut de la
@@ -155,10 +150,7 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 	@Override
 	public List<VilleFranceBLO> trouver(VilleFranceBLO villeFranceBLO) throws SQLException {
 		// TODO Auto-generated method stub
-		Connection connection = null;
-		PreparedStatement preparedStatement = null;
-		ResultSet resultSet = null;
-
+		
 		try {
 			// création d'une connexion grâce à la DAOFactory placée en attribut de la
 			// classe
@@ -188,9 +180,7 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 	@Override
 	public void modifier(VilleFranceBLO villeFranceBLO) throws SQLException {
 		// TODO Auto-generated method stub
-		Connection connection = null;
-		PreparedStatement preparedStatement = null;
-
+		
 		try {
 			// création d'une connexion grâce à la DAOFactory placée en attribut de la
 			// classe
@@ -219,9 +209,6 @@ public class VilleFranceDAO extends DAO<VilleFranceBLO> {
 	@Override
 	public void supprimer(VilleFranceBLO villeFranceBLO) throws SQLException {
 		// TODO Auto-generated method stub
-
-		Connection connection = null;
-		PreparedStatement preparedStatement = null;
 
 		try {
 			// création d'une connexion grâce à la DAOFactory placée en attribut de la
